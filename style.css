@@ -290,6 +290,11 @@ h2 {
 #program-management select,
 #program-management button {
     width: 100%;
+    border-radius: 6px;
+    padding: 10px;
+}
+#program-management button {
+    border: none;
 }
 
 #program-management hr {
