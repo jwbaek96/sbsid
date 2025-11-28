@@ -161,6 +161,7 @@ h2 {
     max-height: 60px;
     min-width: 35px;
     min-height: 35px;
+    justify-self: center;
     border: 1px solid #ccc;
     display: flex;
     justify-content: center;
