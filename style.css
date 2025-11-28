@@ -1,0 +1,299 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 15px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #1c1e21;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px; /* Limit max width on larger mobile screens */
+    margin: 0 auto;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#room-selection, #program-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#seat-config {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seat-config-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#seat-config input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 80px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+#seat-config span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #666;
+}
+
+#seat-config button {
+    width: 100%;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #e4e6eb;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#room-selection {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#room-selection button,
+#program-selection button,
+#seat-config button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #e4e6eb;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#room-selection button:hover,
+#program-selection button:hover,
+#seat-config button:hover {
+    background-color: #d8dbdf;
+}
+
+#add-program-btn {
+    background-color: #42b72a;
+    color: white;
+}
+#add-program-btn:hover {
+    background-color: #36a420;
+}
+
+#remove-program-btn {
+    background-color: #fa3e3e;
+    color: white;
+}
+#remove-program-btn:hover {
+    background-color: #e03030;
+}
+
+
+#program-selection select,
+#program-selection input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#seat-config div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.seat-map {
+    display: grid;
+    gap: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.seat {
+    /* Use viewport width to make seats responsive */
+    width: 15vw;
+    height: 15vw;
+    max-width: 60px;
+    max-height: 60px;
+    min-width: 35px;
+    min-height: 35px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f0f2f5;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.seat.occupied {
+    background-color: #ffb3b3;
+    color: #a30000;
+    border-color: #ff9999;
+}
+
+.room-btn.active {
+    background-color: #1877f2;
+    color: white;
+}
+.room-btn.active:hover {
+    background-color: #166fe5;
+}
+
+/* Save Button Container */
+.save-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+#save-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#save-btn:hover {
+    background-color: #166fe5;
+}
+
+/* Floating Button and Modal Styles */
+.floating-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#program-management {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#program-management input,
+#program-management select,
+#program-management button {
+    width: 100%;
+}
+
+#program-management hr {
+    border: none;
+    border-top: 1px solid #eee;
+}
+

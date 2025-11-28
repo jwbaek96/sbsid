@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="settings-btn" class="floating-btn">⚙️</button>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Program Management</h2>
+            <div id="program-management">
+                <input type="text" id="new-program-name" placeholder="New program name">
+                <button id="add-program-btn">Add Program</button>
+                <hr>
+                <p>Select a program to remove:</p>
+                <select id="program-select-modal"></select>
+                <button id="remove-program-btn">Remove Selected Program</button>
+            </div>
+            <hr>
+            <h2>Seat Configuration</h2>
+            <div id="seat-config">
+                <div class="seat-config-inputs">
+                    <input type="number" id="rows" min="1" value="5" placeholder="Rows" aria-label="Rows">
+                    <span>&times;</span>
+                    <input type="number" id="cols" min="1" value="5" placeholder="Cols" aria-label="Columns">
+                </div>
+                <button id="apply-config-btn">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <h1>Seat Management</h1>
+
+    <div class="container">
+        <div class="controls">
+            <div id="room-selection">
+                <button class="room-btn" data-room="room1">Room 1</button>
+                <button class="room-btn" data-room="room2">Room 2</button>
+            </div>
+
+            <div id="program-selection">
+                <select id="program-select"></select>
+            </div>
+        </div>
+
+        <div id="seat-map" class="seat-map"></div>
+
+        <div class="save-container">
+            <button id="save-btn">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
